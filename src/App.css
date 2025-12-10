@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* ---------- Layout ---------- */
+
+.app-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.editor {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* ---------- Toolbar ---------- */
+
+.toolbar {
+  width: 220px;
+  background: #f3f4f6;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toolbar-btn {
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ---------- PDF ---------- */
+
+.pdf-wrapper {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: auto;
+  position: relative;
+}
+
+.pdf-canvas {
+  width: 100%;
+  display: block;
+}
+
+/* ---------- Fields ---------- */
+
+.field-box {
+  border: 2px dashed #2563eb;
+  background: rgba(37, 99, 235, 0.12);
+  cursor: move;
+}
+
+.field-label {
+  font-size: 12px;
+  color: #1f2937;
+  padding: 4px;
+}
+
+.resize-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #2563eb;
+  bottom: -6px;
+  right: -6px;
+  cursor: nwse-resize;
+}
+
+/* ---------- Button ---------- */
+
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .editor {
+    flex-direction: column;
+  }
+
+  .toolbar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+}
+
+.debug {
+  margin-top: 16px;
+  background: #111827;
+  color: #e5e7eb;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  max-height: 200px;
+  overflow: auto;
+}
+
+
+/* ---------- Sign PDF Button ---------- */
+.sign-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #2563eb, #1e40af);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.sign-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.sign-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+.sign-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Optional: Add icon inside button */
+.sign-btn i {
+  font-size: 18px;
+}
